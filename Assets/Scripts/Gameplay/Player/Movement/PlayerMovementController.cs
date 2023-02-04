@@ -19,7 +19,9 @@ namespace Gameplay.Player.Movement
         
         private Vector3 _currentDirection;
         private float _lastTurnRate;
+
         
+
         public PlayerMovementController(
             SubscribedProperty<Vector3> mousePositionInput,
             SubscribedProperty<float> verticalInput,
@@ -54,6 +56,7 @@ namespace Gameplay.Player.Movement
 
             float currentSpeed = _model.CurrentSpeed;
             float maxSpeed = _model.MaxSpeed;
+            
             UpdateSpeedometerValue(currentSpeed, maxSpeed);
             
             if (currentSpeed != 0)

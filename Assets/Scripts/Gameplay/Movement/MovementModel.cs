@@ -13,13 +13,14 @@ namespace Gameplay.Movement
 
         public float CurrentSpeed { get; private set; }
         public float CurrentTurnRate { get; private set; }
-        
-        
+        public float AfterburnSpeed { get; set; }
+
         public MovementModel(MovementConfig config)
         {
             _config = config;
             CurrentSpeed = 0.0f;
             CurrentTurnRate = 0.0f;
+            AfterburnSpeed = 2.0f;
         }
 
         public void Accelerate(bool movingForward)

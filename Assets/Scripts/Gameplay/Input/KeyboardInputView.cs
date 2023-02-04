@@ -10,6 +10,7 @@ namespace Gameplay.Input
         private const KeyCode PrimaryFire = KeyCode.Mouse0;
         private const KeyCode ChangeWeapon = KeyCode.Q;
         private const KeyCode NextLevel = KeyCode.Return;
+        private const KeyCode AfterburnSpeed = KeyCode.LeftShift;
 
         private void Start()
         {
@@ -18,6 +19,7 @@ namespace Gameplay.Input
             EntryPoint.SubscribeToUpdate(CheckMousePositionInput);
             EntryPoint.SubscribeToUpdate(CheckChangeWeaponInput);
             EntryPoint.SubscribeToUpdate(CheckNextLevelInput);
+            EntryPoint.SubscribeToUpdate(CheckAfterburnSpeedInput);
         }
 
         private void OnDestroy()
@@ -27,6 +29,7 @@ namespace Gameplay.Input
             EntryPoint.UnsubscribeFromUpdate(CheckMousePositionInput);
             EntryPoint.UnsubscribeFromUpdate(CheckChangeWeaponInput);
             EntryPoint.UnsubscribeFromUpdate(CheckNextLevelInput);
+            EntryPoint.UnsubscribeFromUpdate(CheckAfterburnSpeedInput);
         }
 
         private void CheckVerticalInput()
@@ -58,6 +61,12 @@ namespace Gameplay.Input
         {
             bool value = UnityEngine.Input.GetKeyDown(NextLevel);
             OnNextLevelInputInput(value);
+        }
+
+        private void CheckAfterburnSpeedInput()
+        {
+            bool value = UnityEngine.Input.GetKeyDown(AfterburnSpeed);
+            OnAfterburnSpeedInput(value);
         }
 
         private static float CalculateInputValue(float axisOffset, float inputMultiplier)
